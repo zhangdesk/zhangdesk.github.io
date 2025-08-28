@@ -4,6 +4,42 @@
   <title>
     清川 & 景明's LIFE
   </title>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索跳转示例</title>
+    <style>
+        /* 简单的搜索框样式 */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .search-box {
+            display: flex;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .search-box input[type="text"] {
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 300px;
+            font-size: 16px;
+        }
+        .search-box button {
+            padding: 10px 15px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-box button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
   <center>
@@ -39,5 +75,26 @@
   <tr> <td>清川</td> <td> 5km  </td> <td>      </td> <td> 6km  </td> <td> 3.5km </td>  <td> 3km  </td>  <td>      </td> <td> 8.7km </td> <td>      </td> </tr>
   <tr> <td>景明</td> <td> 3km  </td> <td> dance </td> <td> 3km </td> <td>       </td>  <td> 3km  </td>  <td>      </td> <td>  3km  </td> <td>      </td> </tr>
     </table>
+
+    <div class="search-container">
+        <form id="searchForm" class="search-box" onsubmit="return handleSearch();">
+            <input type="text" id="searchInput" placeholder="请输入搜索关键词..." required>
+            <button type="submit">搜索</button>
+        </form>
+    </div>
+
+    <script>
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) {
+                return false;
+            }
+            // 使用百度搜索
+            const searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+            window.open(searchUrl, '_blank');
+            return false; // 阻止表单默认提交
+        }
+    </script>
+  
 </body>
 </html>
