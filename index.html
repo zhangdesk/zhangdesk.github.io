@@ -54,9 +54,26 @@
   <p>以此纪念我们遇见三周年！Happy Third Anniversary!</p>
   <p>  2024年2月13日 ！ </p>
    <hr size="5" color="blue"/>
-  <center>
-  <img src="./fig1.png"/>
-  </center>
+
+   <div class="search-container">
+        <form id="searchForm" class="search-box" onsubmit="return handleSearch();">
+            <input type="text" id="searchInput" placeholder="有什么想问清川的吗？" required>
+            <button type="submit">获取清川回答</button>
+        </form>
+    </div>
+     <script>
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) {
+                return false;
+            }
+            // 使用百度搜索
+            const searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
+            window.open(searchUrl, '_blank');
+            return false; // 阻止表单默认提交
+        }
+    </script>
+
     <table>
   <caption> 清川 & 景明的健身记录 </caption>
   <tr> <td>   </td> <td>2月22日</td> <td>2月23日</td> <td>2月24日</td> <td>2月25日</td> <td>2月26日</td> <td>2月27日</td> <td>2月28日</td> <td>2月29日</td> </tr>
@@ -76,25 +93,11 @@
   <tr> <td>景明</td> <td> 3km  </td> <td> dance </td> <td> 3km </td> <td>       </td>  <td> 3km  </td>  <td>      </td> <td>  3km  </td> <td>      </td> </tr>
     </table>
 
-    <div class="search-container">
-        <form id="searchForm" class="search-box" onsubmit="return handleSearch();">
-            <input type="text" id="searchInput" placeholder="请输入搜索关键词..." required>
-            <button type="submit">搜索</button>
-        </form>
-    </div>
+   
 
-    <script>
-        function handleSearch() {
-            const query = document.getElementById('searchInput').value.trim();
-            if (!query) {
-                return false;
-            }
-            // 使用百度搜索
-            const searchUrl = `https://www.baidu.com/s?wd=${encodeURIComponent(query)}`;
-            window.open(searchUrl, '_blank');
-            return false; // 阻止表单默认提交
-        }
-    </script>
+   <center>
+  <img src="./fig1.png"/>
+  </center>
   
 </body>
 </html>
